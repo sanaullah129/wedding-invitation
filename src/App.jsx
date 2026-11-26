@@ -7,7 +7,7 @@ import Events from './components/Events/Events';
 import Hero from './components/Hero/Hero';
 import Opening from './components/Opening/Opening';
 import ScrollProgress from './components/ScrollProgress';
-import { host, sampleNote } from './data/invitation';
+import { host, verse } from './data/invitation';
 
 export default function App() {
   const [opened, setOpened] = useState(false);
@@ -19,12 +19,23 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <AnimatePresence>
-        {!opened && <Opening key="opening" onOpen={() => setOpened(true)} />}
+        {!opened && (
+          <Opening
+            key="opening"
+            onOpen={() => {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+              setOpened(true);
+            }}
+          />
+        )}
       </AnimatePresence>
       <div className="page" inert={!opened}>
         <ScrollProgress />
         <Hero revealed={opened} />
-        <p className="sample-note">{sampleNote}</p>
+        <figure className="verse">
+          <blockquote>{verse.text}</blockquote>
+          <figcaption>{verse.source}</figcaption>
+        </figure>
         <main>
           <Blessing />
           <Events />

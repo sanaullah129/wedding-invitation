@@ -9,6 +9,7 @@
   padding: 24px;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   color: var(--paper);
   text-align: center;
   background: radial-gradient(ellipse at 50% 38%, #2f5144 0%, var(--deep) 55%, #132620 100%);
@@ -38,6 +39,7 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .envelope-button:disabled { cursor: default; }
 .envelope-button:focus-visible { outline-color: var(--gold-light); outline-offset: 14px; }

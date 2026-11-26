@@ -45,10 +45,12 @@ export const events = [
     venue: 'The Grand FM Banquet',
     address: '2nd Floor, S.V. Road, Above Delhi Darbar, Jogeshwari West, Mumbai',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Grand+FM+Banquet+2nd+Floor+SV+Road+Jogeshwari+West+Mumbai',
-    tentative: true,
   },
 ];
 
 export const countdownTarget = new Date('2026-12-16T19:00:00+05:30').getTime();
 
-export const sampleNote = 'Sample invitation · Reception date and venue are from the reference and are to be confirmed.';
+export const verse = {
+  text: 'And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy.',
+  source: 'Surah Ar-Rum 30:21',
+};

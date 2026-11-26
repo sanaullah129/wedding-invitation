@@ -22,7 +22,6 @@ export default function EventCard({ event }) {
           <dd>{event.venue}{event.address && <small>{event.address}</small>}</dd>
         </div>
       </dl>
-      {event.tentative && <p className="event-tentative">Details to be confirmed</p>}
       <a className="event-map" href={event.mapUrl} target="_blank" rel="noopener noreferrer">
         View location <span aria-hidden="true">↗</span>
       </a>
