@@ -1,0 +1,89 @@
+.events {
+  color: var(--paper);
+  background: radial-gradient(ellipse at 50% 0%, #2c4d40, var(--deep) 60%, var(--deeper));
+}
+.events .section-inner { width: min(100%, 1040px); }
+.events .section-heading .eyebrow { color: var(--gold-light); }
+.events .section-intro { color: rgba(251, 247, 240, .75); }
+.events .ornament { stroke: var(--gold-light); }
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.event-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 12px;
+  padding: 68px clamp(22px, 4vw, 40px) 44px;
+  border-radius: 200px 200px 20px 20px;
+  color: var(--ink);
+  background: linear-gradient(180deg, #fffaf2, #f5ebdc);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .25);
+}
+.event-card::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(176, 138, 85, .5);
+  border-radius: 190px 190px 12px 12px;
+  pointer-events: none;
+}
+
+.event-icon {
+  width: 64px;
+  height: 64px;
+  overflow: visible;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.event-title { font: 400 clamp(38px, 5vw, 46px)/1.1 var(--serif); }
+.event-intro { max-width: 320px; color: var(--muted); font-size: 18px; font-style: italic; line-height: 1.45; }
+
+.event-details { display: grid; width: 100%; margin: 14px 0 0; border-top: 1px solid rgba(176, 138, 85, .3); }
+.event-details > div { padding: 16px 0; border-bottom: 1px solid rgba(176, 138, 85, .3); }
+.event-details dt {
+  margin-bottom: 6px;
+  color: var(--gold);
+  font: 600 9px/1.4 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.event-details dd { margin: 0; font-size: 22px; line-height: 1.25; }
+.event-details small { display: block; margin-top: 6px; color: var(--muted); font: 400 12px/1.5 var(--sans); }
+
+.event-tentative {
+  padding: 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--rose);
+  font: 600 9px/1.4 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.event-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  color: var(--paper);
+  background: var(--deep);
+  font: 600 10px/1 var(--sans);
+  letter-spacing: .18em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .3s ease;
+}
+.event-map:hover, .event-map:focus-visible { background: var(--gold); }

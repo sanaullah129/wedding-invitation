@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#263f36">
+  <meta name="description" content="A sample reception invitation for Arsalaan and Heena, from Arsalaan and family.">
+  <title>Arsalaan &amp; Heena | Reception Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #263f36;
+      --deep: #20372f;
+      --paper: #f8f6f0;
+      --rose: #ead9d4;
+      --gold: #a17d50;
+      --muted: #716f65;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --script: 'Great Vibes', cursive;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--serif); }
+    a { color: inherit; }
+    body.invitation-closed { overflow: hidden; }
+    .opening[hidden] { display: none; }
+    .opening {
+      position: fixed; inset: 0; z-index: 10; display: grid; place-items: center;
+      overflow: auto; padding: 22px; background: #263f36; transition: opacity .65s ease;
+    }
+    .opening::before {
+      content: ''; position: fixed; inset: 0; opacity: .14;
+      background: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center / cover no-repeat;
+      pointer-events: none;
+    }
+    .opening.is-leaving { opacity: 0; pointer-events: none; }
+    .opening-inner { position: relative; display: grid; justify-items: center; gap: 20px; text-align: center; }
+    .opening-label { color: #e7d8c0; font: 600 10px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .2em; }
+    .card-trigger { display: grid; justify-items: center; gap: 22px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+    .card-trigger:focus-visible { outline: 2px solid #fff; outline-offset: 10px; }
+    .wedding-card { position: relative; display: block; width: min(78vw, 350px, 48svh); aspect-ratio: 4 / 5; perspective: 1300px; filter: drop-shadow(0 18px 30px rgba(0,0,0,.24)); }
+    .card-inside, .card-panel, .card-front { position: absolute; top: 0; bottom: 0; }
+    .card-inside { inset: 0; display: grid; place-content: center; padding: 28px; background: #faf6ef; color: var(--ink); border: 1px solid #c7b394; }
+    .card-inside::after { content: ''; position: absolute; inset: 12px; border: 1px solid #d5c5a9; }
+    .card-inside small { color: #91724f; font: 600 9px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .16em; }
+    .card-inside strong { margin-top: 20px; font: 400 31px/1.1 var(--serif); }
+    .card-panel { width: 50%; background: #f3eee4; border: 1px solid #c7b394; backface-visibility: visible; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+    .card-panel::after { content: ''; position: absolute; inset: 12px 0 12px 12px; border: 1px solid #cdbb9e; border-right: 0; }
+    .card-panel-left { left: 0; transform-origin: left center; }
+    .card-panel-right { right: 0; transform-origin: right center; }
+    .card-panel-right::after { inset: 12px 12px 12px 0; border: 1px solid #cdbb9e; border-left: 0; }
+    .card-front { inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; color: var(--ink); pointer-events: none; transition: opacity .3s ease; }
+    .card-front .card-ornament { color: var(--gold); font-size: 25px; }
+    .card-front .card-kicker { margin-top: 22px; color: #876443; font: 600 9px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .17em; }
+    .card-front .card-names { margin: 22px 0; font: 400 48px/1.08 var(--script); }
+    .card-front .card-names span { display: block; font-size: 38px; }
+    .card-front .card-date { color: #6c6d60; font: 500 10px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .12em; }
+    .opening-prompt { color: #f4ede2; font: 600 10px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .18em; }
+    .opening-prompt::after { content: ' ↓'; }
+    .is-opening .card-panel-left { transform: rotateY(-135deg); }
+    .is-opening .card-panel-right { transform: rotateY(135deg); }
+    .is-opening .card-front { opacity: 0; }
+    .hero {
+      position: relative; min-height: 740px; height: 91svh; max-height: 1050px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      overflow: hidden; color: #fff; text-align: center;
+      background: #56665d url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85') center 53% / cover no-repeat;
+    }
+    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(25, 39, 31, .56); }
+    .hero::after { content: ''; position: absolute; inset: 18px; border: 1px solid rgba(255,255,255,.55); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; width: min(94%, 850px); padding: 75px 20px; animation: arrive 1s ease-out both; }
+    .eyebrow { font: 600 10px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .22em; }
+    .hero .eyebrow { color: #f3e7d3; }
+    .hero-mark { margin: 0 auto 34px; font-size: 30px; color: #ead9bd; }
+    .hero h1 { margin: 20px 0 12px; font: 400 98px/.94 var(--script); text-shadow: 0 2px 24px rgba(0,0,0,.2); }
+    .hero h1 span { display: block; font-size: 70px; margin-top: 12px; }
+    .hero-copy { margin: 22px 0 32px; font-size: 24px; font-style: italic; }
+    .hero-date { font: 500 11px/1.5 var(--sans); letter-spacing: .18em; text-transform: uppercase; }
+    .hero-link { display: inline-flex; gap: 12px; align-items: center; margin-top: 36px; padding: 15px 22px; border: 1px solid rgba(255,255,255,.8); font: 600 10px var(--sans); letter-spacing: .13em; text-transform: uppercase; text-decoration: none; transition: background .2s, color .2s; }
+    .hero-link:hover, .hero-link:focus-visible { background: white; color: var(--deep); }
+    .hero-bottom { position: absolute; z-index: 1; bottom: 36px; left: 0; right: 0; font: 500 9px var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+    .sample-note { padding: 12px 20px; background: #e7ddd0; color: #514c42; text-align: center; font: 500 11px/1.5 var(--sans); }
+    .intro { position: relative; overflow: hidden; padding: 96px 24px 100px; text-align: center; background: var(--paper); }
+    .intro::before, .intro::after { content: '✳'; position: absolute; color: #d6c6b3; opacity: .35; font-size: 180px; line-height: 1; }
+    .intro::before { left: -40px; top: 38px; }
+    .intro::after { right: -40px; bottom: 20px; }
+    .inner { position: relative; width: min(100%, 720px); margin: auto; }
+    .gold { color: var(--gold); }
+    .arabic { margin: 34px 0 8px; color: var(--gold); font: 400 35px/1.6 Georgia, serif; }
+    .translation { margin: 0 0 38px; color: var(--muted); font-size: 19px; font-style: italic; }
+    .intro-copy { max-width: 550px; margin: 0 auto; font-size: 25px; line-height: 1.5; }
+    .host { margin: 18px 0 6px; color: var(--ink); font: 400 68px/1.2 var(--script); }
+    .family { margin: 0; color: var(--muted); font-size: 19px; font-style: italic; }
+    .ornament { margin: 32px 0 0; color: var(--gold); font-size: 17px; }
+    .details { background: var(--deep); color: #f8f6ef; padding: 88px 24px 100px; text-align: center; }
+    .details .eyebrow { color: #d5bd98; }
+    h2 { margin: 16px 0; font-size: 52px; font-weight: 400; line-height: 1.05; }
+    .details-intro { margin: 0 auto 45px; max-width: 440px; color: #dfdfd5; font-size: 21px; line-height: 1.45; }
+    .event { max-width: 760px; margin: auto; border-top: 1px solid rgba(226,213,188,.42); border-bottom: 1px solid rgba(226,213,188,.42); display: grid; grid-template-columns: 1fr 1fr 1fr; }
+    .event-item { padding: 30px 18px; }
+    .event-item + .event-item { border-left: 1px solid rgba(226,213,188,.3); }
+    .event-label { display: block; margin-bottom: 14px; color: #d4bb93; font: 600 10px/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+    .event-value { font-size: 23px; line-height: 1.18; }
+    .event-small { display: block; margin-top: 7px; color: #d7d8cd; font: 400 12px/1.5 var(--sans); }
+    .map-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 33px; color: #f5f0e7; font: 600 10px var(--sans); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid #bba47f; padding-bottom: 8px; }
+    .nikah { background: #e9ded8; color: var(--ink); }
+    .nikah .eyebrow, .nikah .event-label { color: #876443; }
+    .nikah .details-intro { color: #62685d; }
+    .nikah .event { border-color: #c9b9af; }
+    .nikah .event-item + .event-item { border-color: #c9b9af; }
+    .nikah .map-link { color: var(--ink); }
+    .countdown-section { padding: 85px 24px 95px; background: #e9ded8; text-align: center; }
+    .countdown-section h2 { margin-bottom: 8px; }
+    .countdown-section > .inner > p { margin: 0; color: #6e6f64; font-size: 20px; font-style: italic; }
+    .countdown { display: flex; justify-content: center; margin: 36px auto 0; }
+    .count-unit { width: 100px; border-right: 1px solid #c9b9af; }
+    .count-unit:last-child { border: 0; }
+    .count-unit strong { display: block; font: 400 43px/1 var(--serif); font-variant-numeric: tabular-nums; }
+    .count-unit span { display: block; margin-top: 11px; font: 600 9px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #777168; }
+    .closing { padding: 90px 24px; text-align: center; background: var(--paper); }
+    .closing p { max-width: 450px; margin: 14px auto; font-size: 22px; line-height: 1.5; color: #62685d; }
+    .closing .signature { margin-top: 22px; color: var(--ink); font: 400 48px/1.2 var(--script); }
+    footer { padding: 22px; background: #1c3029; color: #d8d0c0; text-align: center; font: 500 9px/1.5 var(--sans); letter-spacing: .15em; text-transform: uppercase; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) {
+      .hero { min-height: 620px; height: 90svh; background-position: 55% center; }
+      .hero::after { inset: 12px; }
+      .hero-content { padding: 55px 12px; }
+      .hero h1 { font-size: 65px; }
+      .hero h1 span { font-size: 52px; }
+      .hero-copy { font-size: 20px; }
+      .hero-mark { margin-bottom: 26px; }
+      .intro, .details, .closing { padding: 72px 22px; }
+      .intro::before, .intro::after { font-size: 110px; }
+      .arabic { font-size: 28px; }
+      .intro-copy { font-size: 22px; }
+      .host { font-size: 54px; }
+      h2 { font-size: 43px; }
+      .event { grid-template-columns: 1fr; }
+      .event-item { padding: 23px 10px; }
+      .event-item + .event-item { border-left: 0; border-top: 1px solid rgba(226,213,188,.3); }
+      .countdown-section { padding: 72px 20px; }
+      .count-unit { width: 74px; }
+      .count-unit strong { font-size: 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero-content { animation: none; } .card-panel, .card-front, .opening { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="opening" id="opening" role="dialog" aria-modal="true" aria-label="Open the wedding invitation" hidden>
+    <div class="opening-inner">
+      <div class="opening-label">A celebration of love &amp; togetherness</div>
+      <button class="card-trigger" id="open-invitation" type="button" aria-label="Open Arsalaan and Heena's wedding invitation">
+        <span class="wedding-card" aria-hidden="true">
+          <span class="card-inside"><small>With love &amp; duas</small><strong>You're invited</strong></span>
+          <span class="card-panel card-panel-left"></span>
+          <span class="card-panel card-panel-right"></span>
+          <span class="card-front">
+            <span class="card-ornament">✳</span>
+            <span class="card-kicker">Together with our families</span>
+            <span class="card-names">Arsalaan <span>&amp; Heena</span></span>
+            <span class="card-date">December 2026</span>
+          </span>
+        </span>
+        <span class="opening-prompt">Tap to open</span>
+      </button>
+    </div>
+  </div>
+  <div id="invitation-content">
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-mark" aria-hidden="true">✳</div>
+      <div class="eyebrow">A celebration of love &amp; togetherness</div>
+      <h1>Arsalaan <span>&amp; Heena</span></h1>
+      <p class="hero-copy">Arsalaan &amp; family warmly invite you</p>
+      <div class="hero-date">Reception &nbsp; · &nbsp; 16 December 2026</div>
+      <a class="hero-link" href="#nikah">View the invitation <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-bottom">A special evening awaits</div>
+  </header>
+
+  <div class="sample-note">Sample invitation · Reception date and venue are from the reference and are to be confirmed.</div>
+
+  <main>
+    <section class="intro" aria-labelledby="invitation-title">
+      <div class="inner">
+        <div class="eyebrow gold">With the blessings of Allah</div>
+        <p class="arabic" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+        <p class="translation">In the name of Allah, the Most Gracious, the Most Merciful</p>
+        <p class="intro-copy" id="invitation-title">With joy in our hearts, we request the pleasure of your company at the reception celebrating Arsalaan and Heena.</p>
+        <div class="host">Arsalaan Ansari</div>
+        <p class="family">&amp; the Ansari family</p>
+        <div class="ornament" aria-hidden="true">— &nbsp; ✳ &nbsp; —</div>
+      </div>
+    </section>
+
+    <section class="details nikah" id="nikah" aria-labelledby="nikah-title">
+      <div class="inner">
+        <div class="eyebrow">With the blessings of Allah</div>
+        <h2 id="nikah-title">The Nikah</h2>
+        <p class="details-intro">Please join us as Arsalaan and Heena begin their journey together.</p>
+        <div class="event">
+          <div class="event-item"><span class="event-label">Date</span><div class="event-value">Monday<br>14 December 2026</div></div>
+          <div class="event-item"><span class="event-label">Time</span><div class="event-value">After Namaz-e-Zohar</div></div>
+          <div class="event-item"><span class="event-label">Venue</span><div class="event-value">Patliputra Mosque</div></div>
+        </div>
+        <a class="map-link" href="https://maps.app.goo.gl/dQGdPnnshuR5Bq379" target="_blank" rel="noopener noreferrer">View location <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="details" id="reception" aria-labelledby="reception-title">
+      <div class="inner">
+        <div class="eyebrow">An evening to remember</div>
+        <h2 id="reception-title">The Reception</h2>
+        <p class="details-intro">Please join us for an evening of blessings, good company and celebration.</p>
+        <div class="event">
+          <div class="event-item"><span class="event-label">Date</span><div class="event-value">Wednesday<br>16 December 2026</div></div>
+          <div class="event-item"><span class="event-label">Time</span><div class="event-value">7:00 PM<span class="event-small">onwards</span></div></div>
+          <div class="event-item"><span class="event-label">Venue</span><div class="event-value">The Grand FM Banquet<span class="event-small">2nd Floor, S.V. Road, Above Delhi Darbar, Jogeshwari West, Mumbai</span></div></div>
+        </div>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Grand+FM+Banquet+2nd+Floor+SV+Road+Jogeshwari+West+Mumbai" target="_blank" rel="noopener noreferrer">View location <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="countdown-section" aria-labelledby="countdown-title">
+      <div class="inner">
+        <div class="eyebrow gold">Counting the moments</div>
+        <h2 id="countdown-title">Until we celebrate</h2>
+        <p>We can't wait to share this evening with you.</p>
+        <div class="countdown" aria-label="Time remaining until the reception">
+          <div class="count-unit"><strong id="days">00</strong><span>Days</span></div>
+          <div class="count-unit"><strong id="hours">00</strong><span>Hours</span></div>
+          <div class="count-unit"><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div class="count-unit"><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="inner">
+        <div class="eyebrow gold">With love &amp; duas</div>
+        <h2>Your presence is our joy</h2>
+        <p>We look forward to celebrating this special occasion with you and your family.</p>
+        <div class="signature">The Ansari Family</div>
+        <div class="ornament" aria-hidden="true">✳</div>
+      </div>
+    </section>
+  </main>
+  <footer>With warm regards · Arsalaan Ansari &amp; family</footer>
+  </div>
+  <script>
+    const opening = document.getElementById('opening');
+    const openInvitation = document.getElementById('open-invitation');
+    const invitationContent = document.getElementById('invitation-content');
+    opening.hidden = false;
+    invitationContent.inert = true;
+    document.body.classList.add('invitation-closed');
+    openInvitation.focus();
+    openInvitation.addEventListener('click', () => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      openInvitation.disabled = true;
+      opening.classList.add('is-opening');
+      setTimeout(() => {
+        opening.classList.add('is-leaving');
+        setTimeout(() => {
+          opening.hidden = true;
+          invitationContent.inert = false;
+          document.body.classList.remove('invitation-closed');
+          document.querySelector('.hero-link').focus({ preventScroll: true });
+        }, reducedMotion ? 0 : 650);
+      }, reducedMotion ? 0 : 1200);
+    });
+    const receptionTime = new Date('2026-12-16T19:00:00+05:30').getTime();
+    const units = {
+      days: document.getElementById('days'),
+      hours: document.getElementById('hours'),
+      minutes: document.getElementById('minutes'),
+      seconds: document.getElementById('seconds')
+    };
+    function updateCountdown() {
+      const remaining = Math.max(0, receptionTime - Date.now());
+      const totalSeconds = Math.floor(remaining / 1000);
+      units.days.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, '0');
+      units.hours.textContent = String(Math.floor(totalSeconds / 3600) % 24).padStart(2, '0');
+      units.minutes.textContent = String(Math.floor(totalSeconds / 60) % 60).padStart(2, '0');
+      units.seconds.textContent = String(totalSeconds % 60).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
