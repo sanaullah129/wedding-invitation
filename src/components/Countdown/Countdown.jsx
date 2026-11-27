@@ -2,13 +2,14 @@ import { AnimatePresence, motion } from 'motion/react';
 import { easeOut, Reveal, RevealGroup, RevealItem, SectionHeading } from '../motion';
 import { countdownTarget } from '../../data/invitation';
 import useCountdown from '../../hooks/useCountdown';
+import NextButton from '../NextButton';
 import './Countdown.css';
 
 export default function Countdown() {
   const { done, units } = useCountdown(countdownTarget);
 
   return (
-    <section className="section countdown" aria-labelledby="countdown-title">
+    <section id="countdown" className="section countdown" aria-labelledby="countdown-title">
       <div className="section-inner">
         <SectionHeading
           id="countdown-title"
@@ -41,6 +42,7 @@ export default function Countdown() {
             ))}
           </RevealGroup>
         )}
+        <NextButton to="closing">Continue</NextButton>
       </div>
     </section>
   );

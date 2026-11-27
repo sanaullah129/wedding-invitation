@@ -6,7 +6,7 @@ export const couple = {
 };
 
 export const host = {
-  name: 'Arsalaan Ansari',
+  name: 'Mohammed Arif Ansari',
   family: 'the Ansari family',
 };
 

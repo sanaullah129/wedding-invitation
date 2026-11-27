@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { FadeWords, Ornament, Reveal } from '../motion';
+import NextButton from '../NextButton';
 import { blessing, host } from '../../data/invitation';
 import './Blessing.css';
 
@@ -39,6 +40,7 @@ export default function Blessing() {
         <Reveal as="span" className="eyebrow blessing-label" delay={0.1}>Invited by</Reveal>
         <Reveal as="p" className="blessing-host" delay={0.25}>{host.name}</Reveal>
         <Reveal as="p" className="blessing-family" delay={0.45}>&amp; {host.family}</Reveal>
+        <NextButton to="events">See the celebrations</NextButton>
       </div>
     </section>
   );

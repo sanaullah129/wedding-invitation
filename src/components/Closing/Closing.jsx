@@ -27,7 +27,7 @@ function Monogram() {
 
 export default function Closing() {
   return (
-    <section className="section closing" aria-labelledby="closing-title">
+    <section id="closing" className="section closing" aria-labelledby="closing-title">
       <div className="section-inner">
         <Monogram />
         <Reveal as="span" className="eyebrow">With love &amp; duas</Reveal>

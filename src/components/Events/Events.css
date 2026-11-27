@@ -6,6 +6,7 @@
 .events .section-heading .eyebrow { color: var(--gold-light); }
 .events .section-intro { color: rgba(251, 247, 240, .75); }
 .events .ornament { stroke: var(--gold-light); }
+.events .next-button { color: var(--gold-light); }
 
 .event-grid {
   display: grid;

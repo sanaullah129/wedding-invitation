@@ -1,4 +1,5 @@
 import { RevealGroup, SectionHeading } from '../motion';
+import NextButton from '../NextButton';
 import { events } from '../../data/invitation';
 import EventCard from './EventCard';
 import './Events.css';
@@ -16,6 +17,7 @@ export default function Events() {
         <RevealGroup className="event-grid" interval={0.25} amount={0.15}>
           {events.map((event) => <EventCard key={event.id} event={event} />)}
         </RevealGroup>
+        <NextButton to="countdown">Count the days</NextButton>
       </div>
     </section>
   );

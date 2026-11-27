@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { easeOut } from '../motion';
-import { couple, events, heroImage } from '../../data/invitation';
+import NextButton from '../NextButton';
+import { couple, events, heroImage, host } from '../../data/invitation';
 import Petals from './Petals';
 import './Hero.css';
 
@@ -49,21 +50,15 @@ export default function Hero({ revealed }) {
             <motion.span className="hero-amp gold-text" variants={ampersand}>&amp;</motion.span>
             <motion.span className="hero-name" variants={item}>{couple.bride}</motion.span>
           </h1>
-          <motion.p className="hero-copy" variants={item}>{couple.groom} &amp; family warmly invite you</motion.p>
+          <motion.p className="hero-copy" variants={item}>{host.name} &amp; family warmly invite you</motion.p>
           <motion.div className="hero-dates" variants={item}>
             {events.map((event) => (
               <span key={event.id}><strong>{event.label}</strong>{event.date}</span>
             ))}
           </motion.div>
-          <motion.a ref={ctaRef} className="hero-cta" href="#invitation" variants={item}>
+          <NextButton ref={ctaRef} to="verse" className="next-button hero-cta" variants={item}>
             View the invitation
-            <motion.span
-              className="hero-cta-line"
-              aria-hidden="true"
-              animate={{ scaleY: [0, 1, 1], opacity: [1, 1, 0] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-            />
-          </motion.a>
+          </NextButton>
         </motion.div>
       </motion.div>
     </header>

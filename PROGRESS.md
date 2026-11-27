@@ -4,7 +4,7 @@ Read this file before starting each chunk, and update it when a chunk is finishe
 
 ## Goal
 
-- Single invitation for Arsalaan & Heena, sent from Arsalaan Ansari and the Ansari family.
+- Single invitation for Arsalaan & Heena, sent from Mohammed Arif Ansari and the Ansari family.
 - Remove the `invitation-v2.html` link and build one React app.
 - Split the UI into reusable React components.
 - Use Motion (`motion/react`) for the opening, scroll reveals, word-by-word fades, parallax and countdown.

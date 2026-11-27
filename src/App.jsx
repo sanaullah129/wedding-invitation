@@ -32,7 +32,7 @@ export default function App() {
       <div className="page" inert={!opened}>
         <ScrollProgress />
         <Hero revealed={opened} />
-        <figure className="verse">
+        <figure id="verse" className="verse">
           <blockquote>{verse.text}</blockquote>
           <figcaption>{verse.source}</figcaption>
         </figure>
