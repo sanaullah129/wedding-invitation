@@ -15,5 +15,5 @@
 .blessing-translation { margin-top: 4px; color: var(--muted); font-size: clamp(18px, 2.4vw, 21px); font-style: italic; }
 .blessing-message { max-width: 600px; margin: 40px auto 0; font-size: clamp(24px, 3.4vw, 32px); line-height: 1.45; }
 .blessing-label { margin-top: 50px; }
-.blessing-host { margin-top: 8px; color: var(--ink); font: 400 clamp(54px, 9vw, 80px)/1.2 var(--script); }
+.blessing-host { margin-top: 8px; color: var(--ink); font: 400 clamp(65px, 11vw, 96px)/1.1 var(--script); }
 .blessing-family { color: var(--muted); font-size: 20px; font-style: italic; }

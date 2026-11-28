@@ -61,7 +61,7 @@
 .hero-names {
   display: grid;
   justify-items: center;
-  font: 400 clamp(56px, 19vw, 124px)/.95 var(--script);
+  font: 400 clamp(67px, 23vw, 150px)/.9 var(--script);
   text-shadow: 0 4px 30px rgba(0, 0, 0, .25);
 }
 .hero-name { display: block; }
