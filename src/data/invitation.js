@@ -30,7 +30,7 @@ export const events = [
     date: '14 December 2026',
     time: 'After Namaz-e-Zohar',
     venue: 'Patliputra Mosque',
-    mapUrl: 'https://maps.app.goo.gl/dQGdPnnshuR5Bq379',
+    mapUrl: 'https://maps.app.goo.gl/cxqmU4oHavGWBBuo8',
   },
   {
     id: 'reception',
